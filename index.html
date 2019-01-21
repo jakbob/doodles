@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Some doodles</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.5.1/css-doodle.min.js"></script>
+  <style>
+    body { 
+      margin: 0;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body>
+  <css-doodle>
+    :doodle {
+      @grid: 8;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    :container {
+      @size: 100vmax;
+      transform: rotate(45deg) scale(1.5);
+    }
+    
+    background: rgb(175, 75,  @rand(0, 80));
+    
+    :after {
+      content: "🍐";
+      color: rgb(170, 150, @rand(50, 120));
+      font-size: 5vmax;
+      line-height: 1;
+      transform: rotate(@rand(0, 360deg))
+    }
+  </css-doodle>
+  <css-doodle>
+    :doodle {
+      @grid: 20 / 100vmax;
+      overflow: hidden;
+    }
+    :after {
+      content: @pick(═,║,╔,╗,╚,╝,╠,╣,╦,╩,╬);
+      font-size: 9vmax;
+      line-height: 1;
+      color: hsl(@rand(30, 130), 50%, 30%);
+    }
+    background: #342045;
+    overflow: hidden;
+  </css-doodle>
+</body>
+</html>
