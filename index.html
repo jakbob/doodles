@@ -11,6 +11,7 @@
   </style>
 </head>
 <body>
+  <!-- Fruit -->
   <css-doodle>
     :doodle {
       @grid: 8;
@@ -34,6 +35,7 @@
       transform: rotate(@rand(0, 360deg))
     }
   </css-doodle>
+  <!-- Maze -->
   <css-doodle>
     :doodle {
       @grid: 20 / 100vmax;
@@ -47,6 +49,48 @@
     }
     background: #342045;
     overflow: hidden;
+  </css-doodle>
+
+  <!-- Waves -->
+  <css-doodle>
+    :doodle {
+      @grid: 8x1;
+      width: 125vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      background: skyblue;
+    }
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    top: @calc(@index() * 12.5 - 12.5)%;
+    background: hsl(200, @r(85%, 90%), calc(60% - @row() * 3%));
+
+    clip-path: polygon(
+      @repeat(101, (
+        @calc(100 / 100 * (@n() - 1))%
+        @calc(@sin(20*@PI() * (@n() - 1) / 100) * 5 + 6)%,
+      ))
+      100% 100%,
+      0 100%
+    );
+    
+    animation-name: wave;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    @even {
+      animation-direction: alternate-reverse;
+    }
+
+    @keyframes wave {
+      0% { transform: translateX(-20%) translateY(2%) rotate(-1deg); }
+      100% { transform: translateX(-2%) translateY(@rand(10%)) rotate(1deg); }
+    }
+
   </css-doodle>
 </body>
 </html>
