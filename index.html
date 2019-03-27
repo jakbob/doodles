@@ -155,5 +155,71 @@
     }
 
   </css-doodle>
+  
+  <!-- Cube -->
+  <css-doodle>
+    :doodle {
+      @grid: 6x1;
+      width: 100vw;
+      height: 100vh;
+      background: hsl(30, 10%, 4%);
+      overflow: hidden;
+    }
+
+    :container {
+      perspective-origin: center;
+      perspective: 600px;
+      transform-style: preserve-3d;
+
+      animation-name: movePerspective;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+    }
+
+    @place-cell: center;
+    @size: 100px;
+    backface-visibility: visible;
+    border: 1px solid #fff;
+    
+    @nth(1) {
+      transform: translateZ(50px);
+      background: hsla(300, 67%, 10%, 30%);
+    }
+
+    @nth(2) {
+      transform: rotateY(90deg) translateZ(50px);
+      background: hsla(310, 67%, 10%, 30%);
+    }
+
+    @nth(3) {
+      transform: rotateY(180deg) translateZ(50px);
+      background: hsla(320, 67%, 10%, 30%);
+    }
+
+    @nth(4) {
+      transform: rotateY(-90deg) translateZ(50px);
+      background: hsla(290, 67%, 10%, 30%);
+    }
+
+    @nth(5) {
+      transform: rotateX(90deg) translateZ(50px);
+      background: hsla(280, 67%, 10%, 30%);
+    }
+
+    @nth(6) {
+      transform: rotateX(90deg) translateZ(-50px);
+      background: hsla(330, 67%, 10%, 30%);
+    }
+    
+    @keyframes movePerspective {
+      0% { perspective-origin: 0% 0%; transform: rotateZ(0deg) }
+      25% { perspective-origin: 10 90%; }
+      50% { perspective-origin: 50% 50%; }
+      75% { perspective-origin: 70% 16%; }
+      100% { perspective-origin: 80% 85%; transform: rotateZ(180deg)}
+    }
+  </css-doodle>
 </body>
 </html>
