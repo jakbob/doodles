@@ -36,6 +36,7 @@
       transform: rotate(@rand(0, 360deg))
     }
   </css-doodle>
+  
   <!-- Maze -->
   <css-doodle>
     :doodle {
@@ -91,6 +92,66 @@
     @keyframes wave {
       0% { transform: translateX(-20%) translateY(2%) rotate(-1deg); }
       100% { transform: translateX(-2%) translateY(@rand(10%)) rotate(1deg); }
+    }
+
+  </css-doodle>
+
+  <!-- City -->
+  <css-doodle>
+    :doodle {
+      @grid: 21x5;
+      width: 100vw;
+      height: 100vh;
+      grid-gap: 2vmax;
+      background: linear-gradient(to bottom, #091904, #102030);
+      overflow: hidden;
+    }
+
+    :container {
+      perspective: 100px;
+      perspective-origin: center;
+      transform-style: preserve-3d;
+    }
+
+    @place-cell: center;
+    background: hsl(300, 50%, 16%, 90%);
+    @size: 10vmin;
+ 
+    --x: @calc(5 * ((@row() + 1) / 5 - @floor((@row() + 1) / 5)));
+    --y: @calc(@floor((@row() + 1) / 5));
+    --xPos: calc((var(--x) - 2) * 16vh);
+    --yPos: calc((var(--y) - 2) * 16vh);
+
+    @col(1) {
+      transform: translate3d(var(--xPos), calc(-1 * var(--yPos)), 0);
+    }
+
+    @col(2) {
+      background: hsl(120, 70%, 25%, 90%);
+      transform: rotateX(90deg)
+                 translate3d(var(--xPos), -10vh, calc(var(--yPos) - 5vh))
+                 scaleY(2);
+    }
+    
+    @col(3) {
+      background: hsl(0, 80%, 50%, 90%);
+      transform: rotateY(90deg)
+                 translate3d(10vh, calc(-1 * var(--yPos)), calc(var(--xPos) - 5vh))
+                 scaleX(2);
+    }
+
+    @col(4) {
+      background: hsl(120, 70%, 25%, 90%);
+      transform: rotateX(90deg)
+                 translate3d(var(--xPos), -10vh, calc(var(--yPos) + 5vh))
+                 scaleY(2);
+    }
+    
+    @col(5) {
+      background: hsl(0, 80%, 50%, 90%);
+      transform: rotateY(90deg) 
+                 translate3d(10vh, calc(-1 * var(--yPos)), calc(var(--xPos) + 5vh))
+                 scaleX(2);
     }
 
   </css-doodle>
