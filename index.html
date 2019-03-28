@@ -119,8 +119,8 @@
  
     --x: @calc(5 * ((@row() + 1) / 5 - @floor((@row() + 1) / 5)));
     --y: @calc(@floor((@row() + 1) / 5));
-    --xPos: calc((var(--x) - 2) * 16vh);
-    --yPos: calc((var(--y) - 2) * 16vh);
+    --xPos: calc((var(--x) - 2) * 16vmin);
+    --yPos: calc((var(--y) - 2) * 16vmin);
 
     @col(1) {
       transform: translate3d(var(--xPos), calc(-1 * var(--yPos)), 0);
@@ -129,28 +129,28 @@
     @col(2) {
       background: hsl(120, 70%, 25%, 90%);
       transform: rotateX(90deg)
-                 translate3d(var(--xPos), -10vh, calc(var(--yPos) - 5vh))
+                 translate3d(var(--xPos), -10vmin, calc(var(--yPos) - 5vmin))
                  scaleY(2);
     }
     
     @col(3) {
       background: hsl(0, 80%, 50%, 90%);
       transform: rotateY(90deg)
-                 translate3d(10vh, calc(-1 * var(--yPos)), calc(var(--xPos) - 5vh))
+                 translate3d(10vmin, calc(-1 * var(--yPos)), calc(var(--xPos) - 5vmin))
                  scaleX(2);
     }
 
     @col(4) {
       background: hsl(120, 70%, 25%, 90%);
       transform: rotateX(90deg)
-                 translate3d(var(--xPos), -10vh, calc(var(--yPos) + 5vh))
+                 translate3d(var(--xPos), -10vmin, calc(var(--yPos) + 5vmin))
                  scaleY(2);
     }
     
     @col(5) {
       background: hsl(0, 80%, 50%, 90%);
       transform: rotateY(90deg) 
-                 translate3d(10vh, calc(-1 * var(--yPos)), calc(var(--xPos) + 5vh))
+                 translate3d(10vmin, calc(-1 * var(--yPos)), calc(var(--xPos) + 5vmin))
                  scaleX(2);
     }
 
