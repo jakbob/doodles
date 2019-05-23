@@ -221,5 +221,47 @@
       100% { perspective-origin: 80% 85%; transform: rotateZ(180deg)}
     }
   </css-doodle>
+
+  <!-- Matrix -->
+  <css-doodle>
+    :doodle {
+      @grid: 24x24;
+      width: 100vw;
+      height: 100vh;
+      background: #060606;
+      overflow: hidden;
+    }
+
+    position: absolute;
+    left: @calc(@col() / @size-col() * 100)%;
+    bottom: 110%;
+    animation: fall-down 4s linear;
+    animation-iteration-count: infinite;
+    animation-delay: @calc(@row() / @size-row() * 4)s;
+
+    opacity: @r(
+      @min(c, 0.6), 
+      @min(@calc(@row() / @size-row() + 0.5), 1)
+    );
+
+    :before {
+      position: absolute;
+      content: \@hex(@rand(10000, 15000));
+      filter: blur(3px);
+      transform: scale(1.2);
+      color: rgba(0, 255, 0, 1);
+    }
+
+    :after {
+      position: absolute;
+      content: \@hex(@last-rand());
+      color: rgba(0, 255, 0, 0.6);
+    }
+
+    @keyframes fall-down {
+      from { transform: translateY(0); }
+      to { transform: translateY(110vh); }
+    }
+  </css-doodle>
 </body>
 </html>
