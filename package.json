@@ -1,0 +1,22 @@
+{
+  "name": "doodles",
+  "version": "1.0.0",
+  "description": "A collection of <css-doodles />",
+  "main": "index.html",
+  "scripts": {
+    "start": "browser-sync start --server --files *.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakbob/doodles.git"
+  },
+  "author": "Jakob Florell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakbob/doodles/issues"
+  },
+  "homepage": "https://github.com/jakbob/doodles#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.5"
+  }
+}
