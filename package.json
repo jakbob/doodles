@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/jakbob/doodles#readme",
   "dependencies": {
-    "browser-sync": "^2.26.5"
+    "browser-sync": "^2.27.10"
   }
 }
